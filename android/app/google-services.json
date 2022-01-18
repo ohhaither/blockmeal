@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "764270309291",
+    "project_id": "blockmeal-696db",
+    "storage_bucket": "blockmeal-696db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764270309291:android:00c5c50a6cc5bbb190acee",
+        "android_client_info": {
+          "package_name": "com.example.blockmeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764270309291-1idfthtu0rv0883s8eh5vkafe91cusa3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blockmeal",
+            "certificate_hash": "faf307fe27caeca36d21f8e3fa70f7b28d44dff3"
+          }
+        },
+        {
+          "client_id": "764270309291-gehg73gbtvp0vj0nmcmtq78a6b2cemc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-jt-8jf44tmA3dSjEAqx-Aho9u1l1aa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764270309291-gehg73gbtvp0vj0nmcmtq78a6b2cemc2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
