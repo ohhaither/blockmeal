@@ -1,4 +1,5 @@
 import 'package:blockmeal/models/restaurant.dart';
+import 'package:blockmeal/screens/ownerOptions/restaurantEdit.dart';
 import 'package:flutter/material.dart';
 
 class RestaurantTile extends StatelessWidget {
@@ -12,8 +13,13 @@ class RestaurantTile extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0),
         child: ListTile(
-          title: Text(restaurant!.name!),
-          subtitle: Text(restaurant!.location!),
+          title: TextButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => RestaurantEdit(restaurant: restaurant)));
+            },
+            child: Text(restaurant!.name!),
+          ),
         ),
       ),
     );

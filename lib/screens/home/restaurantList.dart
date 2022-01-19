@@ -27,7 +27,14 @@ class _RestaurantListState extends State<RestaurantList> {
         shrinkWrap: true,
         itemCount: filtered.length,
         itemBuilder: (context,index){
-            return RestaurantTile(restaurant: filtered[index]);
+          return Container(
+            child: Column(
+              children: <Widget>[
+                RestaurantTile(restaurant: filtered[index]),
+              ],
+            ),
+          );
+            //return RestaurantTile(restaurant: filtered[index]);
         });
   }
 }

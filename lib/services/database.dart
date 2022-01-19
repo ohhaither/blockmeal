@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:async';
 
 import 'package:blockmeal/models/client.dart';
+import 'package:blockmeal/models/item.dart';
 import 'package:blockmeal/models/owner.dart';
 import 'package:blockmeal/models/restaurant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,6 +17,7 @@ class DatabaseService {
   final CollectionReference clientCollection = FirebaseFirestore.instance.collection('clients');
   final CollectionReference ownerCollection = FirebaseFirestore.instance.collection('owners');
   final CollectionReference restaurantCollection = FirebaseFirestore.instance.collection('restaurants');
+  final CollectionReference itemCollection = FirebaseFirestore.instance.collection('items');
 
 
 
@@ -56,6 +58,17 @@ class DatabaseService {
     var list = [restaurantRef];
     return await ownerCollection.doc(uid).update({
       'restaurants' : FieldValue.arrayUnion(list),
+    });
+  }
+
+  Future addItem(String name,String desc, double price, bool isToken, int tokenPrice, String rid) async{
+    return await itemCollection.doc(name + "-" + rid).set({
+      'name' : name,
+      'iid' : rid,
+      'allowsTokens': isToken,
+      'tokenPrice' : tokenPrice,
+      'price' : price,
+      'description' : desc,
     });
   }
 
@@ -100,12 +113,29 @@ class DatabaseService {
     }).toList();
   }
 
+  List<Item> _itemListFromSnapshot(QuerySnapshot snapshot){
+    return snapshot.docs.map((doc){
+      return Item(
+        name: doc.get('name'),
+        iid: doc.get('iid'),
+        allowsTokens: doc.get('allowsTokens'),
+        price: doc.get('price'),
+        tokenPrice: doc.get('tokenPrice'),
+        description: doc.get('description')
+      );
+    }).toList();
+  }
+
   Stream<OwnerData> getOwner(DocumentReference? ownerref) {
     return ownerref!.snapshots().map(_ownerDataFromReference);
   }
 
   Stream<List<RestaurantData>> get restaurantdata{
     return restaurantCollection.snapshots().map(_restaurantListFromSnapshot);
+  }
+
+  Stream<List<Item>> get items{
+    return itemCollection.snapshots().map(_itemListFromSnapshot);
   }
   
 

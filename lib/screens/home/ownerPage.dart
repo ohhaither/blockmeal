@@ -26,7 +26,7 @@ class OwnerPage extends StatelessWidget {
             return Scaffold(
               appBar: AppBar(
                 automaticallyImplyLeading: false,
-                title: Text("Owner page"),
+                title: Text("Owner page: Restaurants"),
               ),
               body: Column(
                 children: <Widget>[
