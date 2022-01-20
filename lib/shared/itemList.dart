@@ -8,8 +8,9 @@ import 'package:provider/provider.dart';
 class ItemList extends StatefulWidget {
 
   final RestaurantData? restaurant;
+  final int? operationType;
 
-  ItemList({this.restaurant});
+  ItemList({this.restaurant,this.operationType});
 
   @override
   _ItemListState createState() => _ItemListState();
@@ -34,7 +35,7 @@ class _ItemListState extends State<ItemList> {
           mainAxisSpacing: 2.0,
         ), itemCount: filtered.length,
       itemBuilder: (context,index){
-        return ItemTile(item:filtered[index]);
+        return ItemTile(item:filtered[index],operationType: widget.operationType);
       },
     );
   }

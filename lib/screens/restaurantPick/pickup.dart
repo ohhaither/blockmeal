@@ -1,7 +1,9 @@
+import 'package:blockmeal/models/client.dart';
 import 'package:flutter/material.dart';
 
 class PickupPage extends StatelessWidget {
-  const PickupPage({Key? key}) : super(key: key);
+  final ClientData? clientData;
+  PickupPage({this.clientData});
 
   @override
   Widget build(BuildContext context) {

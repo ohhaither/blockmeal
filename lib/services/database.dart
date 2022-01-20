@@ -34,6 +34,7 @@ class DatabaseService {
   Future updateClient(String name) async{
     return await clientCollection.doc(uid).set({
       'name': name,
+      'tokens': 0.0,
     });
   }
   Future updateOwner(String name,List<DocumentReference> restaurants) async{
@@ -93,6 +94,7 @@ class DatabaseService {
     return ClientData(
       uid:uid,
       name: snapshot.get('name'),
+      tokens: snapshot.get('tokens'),
     );
   }
 

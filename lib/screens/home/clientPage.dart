@@ -30,7 +30,7 @@ class ClientPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PickupPage()));
+                              builder: (context) => PickupPage(clientData: clientdata)));
                     },
                 child: Text('Pickup',
                     style: TextStyle(color: Colors.black))),
@@ -39,7 +39,7 @@ class ClientPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => OrderPage()));
+                                builder: (context) => OrderPage(clientData: clientdata)));
                       },
                       child: Text('Order',
                           style: TextStyle(color: Colors.black))),
@@ -48,7 +48,7 @@ class ClientPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ReservationPage()));
+                                builder: (context) => ReservationPage(clientData: clientdata)));
                       },
                       child: Text('Reservation',
                           style: TextStyle(color: Colors.black))),
@@ -57,7 +57,7 @@ class ClientPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TokensPage()));
+                                builder: (context) => TokensPage(clientData: clientdata)));
                       },
                       child: Text('Tokens',
                           style: TextStyle(color: Colors.black))),

@@ -1,7 +1,10 @@
+import 'package:blockmeal/models/client.dart';
 import 'package:flutter/material.dart';
 
 class TokensPage extends StatelessWidget {
-  const TokensPage({Key? key}) : super(key: key);
+
+  final ClientData? clientData;
+  TokensPage({this.clientData});
 
   @override
   Widget build(BuildContext context) {
